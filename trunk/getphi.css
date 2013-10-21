@@ -1,0 +1,145 @@
+
+
+#header ul {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+}
+#header li {
+display:inline;
+margin:0 2px 0 0;
+}
+#header a {
+background:#FFEE55 none repeat scroll 0 0;
+color:#AA8800;
+padding:0 1em;
+text-decoration:none;
+}
+#header a:hover {
+background:#FFCC00 none repeat scroll 0 0;
+color:#554400;
+}
+#header #selected a {
+background:#FFCC00 none repeat scroll 0 0;
+color:black;
+font-weight:bold;
+padding-bottom:2px;
+}
+
+
+h1.warning{
+	text-align: center;
+	font-size: 61px ;	
+	background-color: red;
+}
+
+
+h1{
+	text-align: center;
+	font-size: 61px ;	
+}
+
+h2.warning{
+	text-align: left;
+	font-size: 25px ;
+	background-color: red;
+}
+
+h2{
+	text-align: left;
+	font-size: 40px ;	
+}
+
+table {
+
+	
+}
+
+td.right {
+border: medium solid  #bf1212;
+background-color: red;
+vertical-align: top;
+padding: 5px 5px 5px 5px ;
+margin: 5px 5px 5px 5px ;
+		
+
+}
+
+td.left {
+border: medium solid  #066705;
+vertical-align: top;
+background-color: green;
+padding: 5px 5px 5px 5px ;
+margin: 5px 5px 5px 5px ;
+}
+
+ul.inlinebutton{
+
+	list-style-type: none;
+	text-align: left;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+}
+
+ul.inlinebutton li{
+display: block;
+margin: 5;
+padding: 10;
+width:550px;
+
+}	
+
+ul.inlinebutton li a{
+
+padding: 0.5em 0 0.5em 2em;
+text-decoration: none;
+	width:250px;
+    margin: 1px 1px 1px 1px ;
+    border-style: solid;
+    border-width: 5px;
+	border-color: #d2e2ea #6b93a6 #8CACBB #e3ecf1;
+	background-color:#DEE7EC;
+	color: grey;
+}
+
+ul.inlinebutton li a:hover{
+
+padding: 0.5em 0 0.5em 2em;
+text-decoration: none;
+	width:250px;
+    margin: 1px 1px 1px 1px ;
+    border-style: solid;
+    border-width: 5px;
+	border-color:  #8CACBB  #d2e2ea #e3ecf1 #6b93a6 ;
+	background-color:#DEE7EC;
+	color: black;
+}
+
+div.autocomplete {
+background-color:white;
+border:1px solid #888888;
+margin:0;
+padding:0;
+position:absolute;
+width:250px;
+}
+
+
+    div.autocomplete ul {
+      list-style-type:none;
+      margin:0px;
+      padding:0px;
+    }
+    div.autocomplete ul li.selected { background-color: #ffb;}
+    div.autocomplete ul li {
+      list-style-type:none;
+      display:block;
+      margin:0;
+      padding:2px;
+      height:32px;
+      cursor:pointer;
+    }

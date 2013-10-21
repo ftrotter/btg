@@ -1,0 +1,57 @@
+# Your probably want to change every instance of the word 'example'
+# as well as the IP addresses of course. 
+
+<VirtualHost 1.1.1.1:80>
+        ServerName example.com:80 
+        AddType application/x-httpd-php .php .phtml .php3
+        DocumentRoot "/var/www/html/example/"
+
+        <Directory "/var/www/html/example">
+	#The following rewrite just forces everything to https!!!
+	RewriteEngine On
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+	</Directory>
+
+
+</VirtualHost>
+
+<VirtualHost 1.1.1.1:443>
+
+        ServerName example:443
+        DocumentRoot /var/www/html/example
+
+#points to your instance of simplesamlphp which should be conifured as a Service Provider
+        Alias /simplesaml /var/simplesamlphp/www
+
+	<Directory "/var/www/html/example">
+#This translates the PHI URL to an argument on index.php
+        RewriteEngine on
+        RewriteRule ^([a-z0-9]+)$ /index.php?key=$1  [NC] [R]
+	</Directory>
+
+# Standard stuff
+        ErrorLog logs/ssl_error_log
+        TransferLog logs/ssl_access_log
+        LogLevel warn
+        SSLEngine on
+        SSLProtocol all -SSLv2
+        SSLCipherSuite ALL:!ADH:!EXPORT:!SSLv2:RC4+RSA:+HIGH:+MEDIUM:+LOW
+        SSLCertificateFile /etc/pki/tls/certs/example.crt
+        SSLCertificateKeyFile /etc/pki/tls/private/example.key
+        #SSLCertificateChainFile /etc/pki/tls/certs/server-chain.crt
+        #SSLCACertificateFile /etc/pki/tls/certs/ca-bundle.crt
+        #SSLVerifyClient require
+        #SSLVerifyDepth  10
+        #SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
+        SSLOptions +StdEnvVars
+        SetEnvIf User-Agent ".*MSIE.*" \
+                nokeepalive ssl-unclean-shutdown \
+                downgrade-1.0 force-response-1.0
+        CustomLog logs/ssl_request_log \
+                "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+
+
+
+</VirtualHost>
+

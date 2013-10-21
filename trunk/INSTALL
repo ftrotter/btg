@@ -1,0 +1,9 @@
+you need to pre-install
+
+php
+php-gd (for the captcha)
+everything that simplesamlphp needs
+
+Probably should require php 5.2.x so that Shiboleth with work....
+
+
